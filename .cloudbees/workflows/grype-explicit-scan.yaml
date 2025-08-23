@@ -1,4 +1,4 @@
-name: trivy--explicit-scan
+name: grype-explicit-scan
 kind: workflow
 apiVersion: automation.cloudbees.io/v1alpha1
 
@@ -18,7 +18,7 @@ jobs:
       - name: checkout Source Code
         uses: cloudbees-io/checkout@v1
 
-      - name: Scan with Trivy
-        uses: cloudbees-io/trivy-plugin@v2
+      - name: Scan with Grype
+        uses: cloudbees-io/grype-plugin@v1
         with:
           binary-tar-path: ./python.tar
