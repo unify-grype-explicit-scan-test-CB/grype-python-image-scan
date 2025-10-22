@@ -1,25 +1,19 @@
 name: grype-explicit-scan
 kind: workflow
 apiVersion: automation.cloudbees.io/v1alpha1
-
 on:
   workflow_dispatch:
-  push:
-    branches: 
-      - 'main'
   schedule:
-    - cron: 20 20 * * 1-5
+    - cron: 30 20 * * 1-5
 permissions:
   scm-token-own: read
   scm-token-org: read
   id-token: write
-
 jobs:
   trivy-scan:
-    steps:      
+    steps:
       - name: checkout Source Code
         uses: cloudbees-io/checkout@v1
-
       - name: Scan with Grype
         uses: cloudbees-io/grype-plugin@v1
         with:
