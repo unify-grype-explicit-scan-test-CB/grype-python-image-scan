@@ -8,7 +8,7 @@ permissions:
   scm-token-org: read
   id-token: write
 jobs:
-  trivy-scan:
+  grype-scan:
     steps:
       - name: checkout Source Code
         uses: cloudbees-io/checkout@v1
